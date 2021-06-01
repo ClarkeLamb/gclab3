@@ -12,43 +12,53 @@ namespace gclab3
             Console.WriteLine("Hello, what is your name?");
             name = Console.ReadLine();
             Console.WriteLine("Great to have you here " +  name + "!");
+
             do
             {
                 Console.WriteLine(name + ", " +   "please enter an integer between 1 and 100.");
-                int userInput = int.Parse(Console.ReadLine());
+                string userInput = Console.ReadLine();
 
-                if (userInput >=1 && userInput <= 100)
+                int num = -1;
+
+                if(!int.TryParse(userInput, out num))
                 {
-                    if(userInput % 2 != 0)
+                    Console.WriteLine("That is not an integer.");
+                }
+                
+                
+                if (num >= 1 && num <= 100)
+                {
+                    if(num % 2 != 0)
                     {
-                        Console.WriteLine(userInput + " is Odd");
+                        Console.WriteLine(num + " is Odd");
 
                     }
-                    else if (userInput % 2 == 0 && userInput < 25 && userInput >= 2)
+                    else if (num % 2 == 0 && num < 25 && num >= 2)
                     {
                         Console.WriteLine("Even and less than 25");
 
                     }
-                    else if (userInput % 2 == 0 && userInput >= 26 && userInput <= 60)
+                    else if (num % 2 == 0 && num >= 26 && num <= 60)
                     {
                         Console.WriteLine("Even");
 
                     }
-                    else if (userInput % 2 == 0 && userInput > 60)
+                    else if (num % 2 == 0 && num > 60)
                     {
-                        Console.WriteLine(userInput + " is Even");
+                        Console.WriteLine(num + " is Even");
 
                     }
-                    else if (userInput % 2 != 0 && userInput > 60)
+                    else if (num % 2 != 0 && num > 60)
                     {
-                        Console.WriteLine(userInput + " is Odd");
+                        Console.WriteLine(num + " is Odd");
 
                     }
                     else
                     {
-                       
 
-                    }                    
+                    }
+                             
+                                      
 
                 }
                 else
@@ -56,11 +66,12 @@ namespace gclab3
                     Console.WriteLine("Invalid input. Please check to make sure you entered a whole number in the range of 1 to 100.");
                 }
 
-                Console.WriteLine("Is there another number you would like to input, " + name + "? " + "Yes or No");
+
+                Console.WriteLine("Is there another number you would like to input, " + name + "? " + "Yes or No?");
                 answer = Console.ReadLine();
+                                
 
-
-            } while (answer.ToLower() != "no" || answer.ToLower() != "n");
+            } while (answer.ToLower() != "no");
 
             Console.WriteLine("Thanks for using this program " + name +  "! " + " Come back anytime!");
 
